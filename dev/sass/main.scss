@@ -1,0 +1,48 @@
+@import "normalize";
+@import "variables";
+@import "mixin";
+@import "grid";
+
+.row{
+	padding: 50px 15px;
+}
+
+div{
+	transform-style: preserve-3d;
+	transition: .6s ease-in;
+	transition-property: transform;
+}
+
+.card-1,
+.card-2,
+.card-3,
+.card-4{
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	backface-visibility:hidden;
+}
+
+.wrapper{
+	position: relative;
+	padding: 0;
+	perspective:1000px;
+	
+	&:hover{
+		.card-1,
+		.card-2,
+		.card-3,
+		.card-4{
+			transform: rotateY(-180deg);
+		}
+		.card-front{
+			transform: rotateY(0deg);
+		}
+	}
+}
+
+.card-front{
+	transform: rotateY(180deg);
+	backface-visibility:hidden;
+}
